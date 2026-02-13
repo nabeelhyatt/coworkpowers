@@ -1,0 +1,17 @@
+{
+  "name": "coworkpowers",
+  "version": "1.0.0",
+  "description": "Knowledge work superpowers that compound over time. Research, execute, review, and capture learnings to make each task easier than the last.",
+  "author": {
+    "name": "Nabeel Hyatt",
+    "url": "https://github.com/nabeelhyatt"
+  },
+  "homepage": "https://github.com/nabeelhyatt/coworkpowers",
+  "tags": ["knowledge-work", "productivity", "compound-learning", "decision-making", "research", "planning"],
+  "workflows": [
+    "cowork:research",
+    "cowork:work",
+    "cowork:review",
+    "cowork:compound"
+  ]
+}
