@@ -1,0 +1,24 @@
+{
+  "name": "coworkpowers",
+  "owner": {
+    "name": "Nabeel Hyatt"
+  },
+  "metadata": {
+    "description": "Knowledge work superpowers that compound over time"
+  },
+  "plugins": [
+    {
+      "name": "coworkpowers",
+      "source": ".",
+      "description": "Knowledge work superpowers that compound over time. Research, execute, review, and capture learnings to make each task easier than the last.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Nabeel Hyatt"
+      },
+      "homepage": "https://github.com/nabeelhyatt/coworkpowers",
+      "license": "MIT",
+      "category": "productivity",
+      "tags": ["knowledge-work", "productivity", "compound-learning", "decision-making"]
+    }
+  ]
+}
