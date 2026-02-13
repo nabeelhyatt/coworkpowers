@@ -1,5 +1,5 @@
 ---
-name: cowork:compound
+name: coworkflows:compound
 description: "Extract and store learnings from completed knowledge work to make the next task easier. Use this after completing any significant piece of work to capture patterns, create templates, and update preferences.\n\nExamples:\n- <example>\n  Context: The user just finished a successful board presentation.\n  user: \"That board meeting went really well, let's capture what worked\"\n  assistant: \"I'll extract the patterns that worked - the structure, the framing, the level of detail - and create a reusable template for future board presentations.\"\n  <commentary>\n  Success patterns should be captured immediately while context is fresh.\n  </commentary>\n  </example>\n- <example>\n  Context: A communication didn't land well.\n  user: \"That announcement didn't go over well with the team\"\n  assistant: \"I'll analyze what went wrong - the framing, the timing, the channel - and document lessons for future sensitive communications.\"\n  <commentary>\n  Failures are the most valuable compounding opportunities if analyzed honestly.\n  </commentary>\n  </example>"
 model: inherit
 ---

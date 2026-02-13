@@ -1,5 +1,5 @@
 ---
-name: cowork:research
+name: coworkflows:research
 description: "Research and plan a knowledge work task thoroughly before execution. Use this when starting any significant piece of work - from drafting important communications to making strategic decisions to preparing for meetings.\n\nExamples:\n- <example>\n  Context: The user needs to prepare for a board meeting.\n  user: \"I need to prepare for next week's board meeting\"\n  assistant: \"I'll create a comprehensive preparation plan - gathering context, mapping stakeholder concerns, researching precedents, and building your agenda.\"\n  <commentary>\n  Board prep is high-stakes knowledge work that benefits from structured planning.\n  </commentary>\n  </example>\n- <example>\n  Context: The user needs to draft a difficult communication.\n  user: \"I need to tell the team about layoffs\"\n  assistant: \"I'll plan this carefully - understanding the context, mapping stakeholder reactions, researching best practices, and structuring the communication approach.\"\n  <commentary>\n  Sensitive communications require thorough planning before any drafting begins.\n  </commentary>\n  </example>"
 model: inherit
 ---

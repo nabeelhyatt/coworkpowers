@@ -6,10 +6,10 @@ CoworkPowers gives Claude systematic capabilities for tackling knowledge work—
 
 ## The Compound Loop
 
-1. **Research** (`/cowork:research`) - Thoroughly research the task, search past learnings, gather context
-2. **Work** (`/cowork:work`) - Execute the plan with specialized agents
-3. **Review** (`/cowork:review`) - Multi-agent quality review from multiple perspectives
-4. **Compound** (`/cowork:compound`) - Extract patterns, templates, and preferences for next time
+1. **Research** (`/coworkflows:research`) - Thoroughly research the task, search past learnings, gather context
+2. **Work** (`/coworkflows:work`) - Execute the plan with specialized agents
+3. **Review** (`/coworkflows:review`) - Multi-agent quality review from multiple perspectives
+4. **Compound** (`/coworkflows:compound`) - Extract patterns, templates, and preferences for next time
 
 ## Key Features
 
@@ -39,7 +39,7 @@ CoworkPowers gives Claude systematic capabilities for tackling knowledge work—
 
 ### 1. Research Phase
 ```
-/cowork:research
+/coworkflows:research
 
 "I need to draft an email to the board about Q2 results"
 ```
@@ -52,14 +52,14 @@ Claude will:
 
 ### 2. Work Phase
 ```
-/cowork:work
+/coworkflows:work
 
 Follow the plan from research phase
 ```
 
 ### 3. Review Phase
 ```
-/cowork:review
+/coworkflows:review
 
 Review the draft email
 ```
@@ -71,7 +71,7 @@ Multiple specialized reviewers check in parallel:
 
 ### 4. Compound Phase
 ```
-/cowork:compound
+/coworkflows:compound
 
 The board loved it! Let's capture what worked
 ```
@@ -96,10 +96,10 @@ Copy the `workflows/` and `agents/` directories to your Claude skills folder.
 
 | Command | Purpose | When to Use |
 |---------|---------|-------------|
-| `/cowork:research` | Research and plan thoroughly | Starting any significant work |
-| `/cowork:work` | Execute the plan systematically | After research phase |
-| `/cowork:review` | Multi-agent quality review | After drafting/execution |
-| `/cowork:compound` | Extract learnings for next time | After completing work |
+| `/coworkflows:research` | Research and plan thoroughly | Starting any significant work |
+| `/coworkflows:work` | Execute the plan systematically | After research phase |
+| `/coworkflows:review` | Multi-agent quality review | After drafting/execution |
+| `/coworkflows:compound` | Extract learnings for next time | After completing work |
 
 ## Specialized Agents
 
@@ -128,7 +128,7 @@ Copy the `workflows/` and `agents/` directories to your Claude skills folder.
 
 ```bash
 # 1. Research
-/cowork:research "Draft Q2 board update"
+/coworkflows:research "Draft Q2 board update"
 
 # Claude asks clarifying questions:
 # - What's the most important message? (hypothesis: growth trajectory)
@@ -140,16 +140,16 @@ Copy the `workflows/` and `agents/` directories to your Claude skills folder.
 # Produces structured plan
 
 # 2. Work
-/cowork:work
+/coworkflows:work
 # Follows plan, drafts update using executive-writer agent
 
 # 3. Review
-/cowork:review
+/coworkflows:review
 # 5 specialized reviewers check in parallel
 # Identifies: tone too casual for board, missing risk section
 
 # 4. Compound
-/cowork:compound "Board loved it"
+/coworkflows:compound "Board loved it"
 # Captures: "Board prefers bullet points over prose"
 # Creates: Board update template
 # Documents: Success pattern for future use

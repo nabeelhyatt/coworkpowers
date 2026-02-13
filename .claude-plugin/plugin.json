@@ -9,9 +9,9 @@
   "homepage": "https://github.com/nabeelhyatt/coworkpowers",
   "tags": ["knowledge-work", "productivity", "compound-learning", "decision-making", "research", "planning"],
   "workflows": [
-    "cowork:research",
-    "cowork:work",
-    "cowork:review",
-    "cowork:compound"
+    "coworkflows:research",
+    "coworkflows:work",
+    "coworkflows:review",
+    "coworkflows:compound"
   ]
 }

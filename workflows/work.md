@@ -1,5 +1,5 @@
 ---
-name: cowork:work
+name: coworkflows:work
 description: "Execute a knowledge work plan efficiently while maintaining quality. Use this after planning is complete to systematically work through the plan, using the right agents for each step.\n\nExamples:\n- <example>\n  Context: The user has an approved plan and wants to execute it.\n  user: \"Let's execute the board meeting prep plan\"\n  assistant: \"I'll work through the plan systematically - drafting each deliverable, validating as I go, and flagging anything that needs your input.\"\n  <commentary>\n  Execution should be systematic, following the plan while adapting to what emerges.\n  </commentary>\n  </example>\n- <example>\n  Context: The user wants to draft a communication based on a plan.\n  user: \"Go ahead and draft that email we planned\"\n  assistant: \"I'll draft using the executive-writer approach, incorporating all the context and stakeholder considerations from our plan.\"\n  <commentary>\n  Work phase leverages all the planning context to produce high-quality output efficiently.\n  </commentary>\n  </example>"
 model: inherit
 ---

@@ -6,7 +6,7 @@ You have access to CoworkPowers, a system that makes knowledge work compound ove
 
 Use these workflows for any significant knowledge work:
 
-### `/cowork:research`
+### `/coworkflows:research`
 Research and plan thoroughly before execution. Use when starting:
 - Important communications (board updates, difficult conversations)
 - Strategic decisions (build vs. buy, pricing, hiring)
@@ -22,12 +22,12 @@ Research and plan thoroughly before execution. Use when starting:
 
 **Example:**
 ```
-/cowork:research
+/coworkflows:research
 
 "I need to prepare for next week's board meeting"
 ```
 
-### `/cowork:work`
+### `/coworkflows:work`
 Execute a plan systematically with specialized agents. Use after research phase.
 
 **Available agents:**
@@ -40,12 +40,12 @@ Execute a plan systematically with specialized agents. Use after research phase.
 
 **Example:**
 ```
-/cowork:work
+/coworkflows:work
 
 Follow the board prep plan using meeting-orchestrator
 ```
 
-### `/cowork:review`
+### `/coworkflows:review`
 Multi-agent quality review from specialized perspectives. Use after drafting/execution.
 
 **Review agents run in parallel:**
@@ -55,12 +55,12 @@ Multi-agent quality review from specialized perspectives. Use after drafting/exe
 
 **Example:**
 ```
-/cowork:review
+/coworkflows:review
 
 Review the board presentation draft
 ```
 
-### `/cowork:compound`
+### `/coworkflows:compound`
 Extract patterns, templates, and preferences to make next time easier. Use after completing work.
 
 **What it captures:**
@@ -71,7 +71,7 @@ Extract patterns, templates, and preferences to make next time easier. Use after
 
 **Example:**
 ```
-/cowork:compound
+/coworkflows:compound
 
 That board meeting went really well, let's capture what worked
 ```
@@ -90,7 +90,7 @@ Every completed task should feed insights back into the system. The first board 
 - **High stakes** (board, strategy, sensitive): Full research + multi-agent review + compound
 
 ### Be Honest About Failures
-When something doesn't go well, run `/cowork:compound` immediately. Failure insights are the most valuable compounding opportunities.
+When something doesn't go well, run `/coworkflows:compound` immediately. Failure insights are the most valuable compounding opportunities.
 
 ## Hard Gates & Red Flags
 
@@ -126,19 +126,19 @@ Each insight is a discrete, self-contained markdown file with YAML frontmatter f
 User: "I need to tell the team about layoffs"
 
 # Research phase
-/cowork:research
+/coworkflows:research
 # Asks: Stakes? Audience? Timeline? Past attempts?
 # Searches: Past sensitive communications
 # Gathers: Company context, team morale
 # Produces: Structured communication plan
 
 # Work phase
-/cowork:work
+/coworkflows:work
 # Uses diplomat + executive-writer agents
 # Drafts sensitive communication
 
 # Review phase
-/cowork:review
+/coworkflows:review
 # 5 agents review in parallel
 # Flags: Tone issue, missing support resources section
 
@@ -146,7 +146,7 @@ User: "I need to tell the team about layoffs"
 # ...
 
 # Compound phase
-/cowork:compound
+/coworkflows:compound
 # Captures: Pattern for sensitive communications
 # Documents: "Always include support resources"
 # Creates: Template for layoff communications
