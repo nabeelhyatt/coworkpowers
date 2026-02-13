@@ -1,10 +1,9 @@
 ---
-name: coworkflows:review
-description: "Run parallel multi-agent review on completed knowledge work. Use this after the Work phase to evaluate output quality from multiple specialized perspectives before finalizing.\n\nExamples:\n- <example>\n  Context: The user has drafted an important email.\n  user: \"Review this email before I send it\"\n  assistant: \"I'll run parallel reviews for clarity, tone, strategic alignment, completeness, and sensitivity - then synthesize findings into prioritized fixes.\"\n  <commentary>\n  Important communications benefit from multi-perspective review to catch issues a single reviewer would miss.\n  </commentary>\n  </example>\n- <example>\n  Context: The user has a decision memo ready.\n  user: \"Stress-test this recommendation\"\n  assistant: \"I'll run the devil's advocate, risk assessor, completeness auditor, and strategic alignment checker in parallel to find weaknesses.\"\n  <commentary>\n  Decision memos need adversarial review to ensure robustness before presentation.\n  </commentary>\n  </example>"
-model: inherit
+name: review
+description: "Run parallel multi-agent review on completed knowledge work. Use after the work phase to evaluate output quality from multiple specialized perspectives before finalizing. Triggers on requests like 'review this', 'check this before I send it', 'stress-test this recommendation', or when quality assurance is needed on a deliverable."
 ---
 
-# Camp Review: Multi-Agent Knowledge Work Review
+# Review: Multi-Agent Knowledge Work Review
 
 You are orchestrating the **Review phase** of the Compound Knowledge Work loop. Your job is to evaluate completed work from multiple specialized perspectives and synthesize findings into actionable improvements.
 

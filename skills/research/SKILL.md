@@ -1,10 +1,9 @@
 ---
-name: coworkflows:research
-description: "Research and plan a knowledge work task thoroughly before execution. Use this when starting any significant piece of work - from drafting important communications to making strategic decisions to preparing for meetings.\n\nExamples:\n- <example>\n  Context: The user needs to prepare for a board meeting.\n  user: \"I need to prepare for next week's board meeting\"\n  assistant: \"I'll create a comprehensive preparation plan - gathering context, mapping stakeholder concerns, researching precedents, and building your agenda.\"\n  <commentary>\n  Board prep is high-stakes knowledge work that benefits from structured planning.\n  </commentary>\n  </example>\n- <example>\n  Context: The user needs to draft a difficult communication.\n  user: \"I need to tell the team about layoffs\"\n  assistant: \"I'll plan this carefully - understanding the context, mapping stakeholder reactions, researching best practices, and structuring the communication approach.\"\n  <commentary>\n  Sensitive communications require thorough planning before any drafting begins.\n  </commentary>\n  </example>"
-model: inherit
+name: research
+description: "Research and plan a knowledge work task thoroughly before execution. Use when starting any significant piece of work - drafting important communications, making strategic decisions, preparing for meetings, or tackling analysis projects. Triggers on requests like 'help me prepare for', 'I need to draft', 'plan out', or any high-stakes knowledge work."
 ---
 
-# Camp Research: Knowledge Work Research Workflow
+# Research: Knowledge Work Research Workflow
 
 You are orchestrating the **Research phase** of the Compound Knowledge Work loop. Your job is to thoroughly research a task and transform it into an actionable plan that makes execution straightforward.
 
@@ -24,9 +23,9 @@ You are orchestrating the **Research phase** of the Compound Knowledge Work loop
    - Operations (process design, project planning, documentation)
 
 3. **Determine stakes and complexity:**
-   - **Low stakes**: Internal notes, routine updates → lighter planning
-   - **Medium stakes**: Team communications, standard decisions → moderate planning
-   - **High stakes**: Board communications, strategic decisions, sensitive topics → full planning
+   - **Low stakes**: Internal notes, routine updates -> lighter planning
+   - **Medium stakes**: Team communications, standard decisions -> moderate planning
+   - **High stakes**: Board communications, strategic decisions, sensitive topics -> full planning
 
 ### Phase 1.5: Ask Clarifying Questions
 
@@ -68,13 +67,11 @@ Before launching research, identify gaps and ask the user clarifying questions. 
 Before any new research, check what we already know. This is where compounding pays off.
 
 **In Claude Code** (file-based retrieval):
-1. **Check the learnings index** at `.context/learnings/INDEX.md` — scan for matching category, type, and tags.
+1. **Check the learnings index** at `.context/learnings/INDEX.md` - scan for matching category, type, and tags.
 2. **Search by category**: Grep `.context/learnings/[category]/` for the relevant work type (e.g., `communication/`, `decision/`, `meeting/`).
 3. **Search by type**: Look specifically for `pattern` and `template` insights that match the current task.
 4. **Search by keywords**: Grep across all learnings for topic-specific terms (stakeholder names, project names, framework names).
-5. **Search for preferences**: Grep for `type: preference` insights in the relevant category — these capture style, tone, and detail preferences from previous work.
-
-**In Camp** (channel context): Relevant learnings will also be surfaced automatically via the channel's knowledge base and relevance filtering. The explicit search above is belt-and-suspenders — it catches things the automatic system might miss and works in any environment.
+5. **Search for preferences**: Grep for `type: preference` insights in the relevant category - these capture style, tone, and detail preferences from previous work.
 
 If past learnings exist, incorporate them into the plan:
 - **Reuse patterns** (type: `pattern`) that worked before

@@ -1,12 +1,12 @@
 # CoworkPowers: Knowledge Work Superpowers
 
-You have access to CoworkPowers, a system that makes knowledge work compound over time. Use the four core workflows to research, execute, review, and capture learnings.
+You have access to CoworkPowers, a system that makes knowledge work compound over time. Use the four core skills to research, execute, review, and capture learnings.
 
-## Core Workflows
+## Core Skills
 
-Use these workflows for any significant knowledge work:
+Use these skills for any significant knowledge work:
 
-### `/coworkflows:research`
+### `/coworkpowers:research`
 Research and plan thoroughly before execution. Use when starting:
 - Important communications (board updates, difficult conversations)
 - Strategic decisions (build vs. buy, pricing, hiring)
@@ -22,12 +22,12 @@ Research and plan thoroughly before execution. Use when starting:
 
 **Example:**
 ```
-/coworkflows:research
+/coworkpowers:research
 
 "I need to prepare for next week's board meeting"
 ```
 
-### `/coworkflows:work`
+### `/coworkpowers:work`
 Execute a plan systematically with specialized agents. Use after research phase.
 
 **Available agents:**
@@ -40,12 +40,12 @@ Execute a plan systematically with specialized agents. Use after research phase.
 
 **Example:**
 ```
-/coworkflows:work
+/coworkpowers:work
 
 Follow the board prep plan using meeting-orchestrator
 ```
 
-### `/coworkflows:review`
+### `/coworkpowers:review`
 Multi-agent quality review from specialized perspectives. Use after drafting/execution.
 
 **Review agents run in parallel:**
@@ -55,12 +55,12 @@ Multi-agent quality review from specialized perspectives. Use after drafting/exe
 
 **Example:**
 ```
-/coworkflows:review
+/coworkpowers:review
 
 Review the board presentation draft
 ```
 
-### `/coworkflows:compound`
+### `/coworkpowers:compound`
 Extract patterns, templates, and preferences to make next time easier. Use after completing work.
 
 **What it captures:**
@@ -71,7 +71,7 @@ Extract patterns, templates, and preferences to make next time easier. Use after
 
 **Example:**
 ```
-/coworkflows:compound
+/coworkpowers:compound
 
 That board meeting went really well, let's capture what worked
 ```
@@ -79,7 +79,7 @@ That board meeting went really well, let's capture what worked
 ## Key Principles
 
 ### Ask First, Research Second
-The research workflow asks clarifying questions BEFORE launching expensive parallel research. This prevents wasted work on the wrong problem.
+The research skill asks clarifying questions BEFORE launching expensive parallel research. This prevents wasted work on the wrong problem.
 
 ### Compound Everything Worth Repeating
 Every completed task should feed insights back into the system. The first board update takes 4 hours. The second takes 1 hour. That's compounding.
@@ -90,11 +90,11 @@ Every completed task should feed insights back into the system. The first board 
 - **High stakes** (board, strategy, sensitive): Full research + multi-agent review + compound
 
 ### Be Honest About Failures
-When something doesn't go well, run `/coworkflows:compound` immediately. Failure insights are the most valuable compounding opportunities.
+When something doesn't go well, run `/coworkpowers:compound` immediately. Failure insights are the most valuable compounding opportunities.
 
 ## Hard Gates & Red Flags
 
-For high-stakes work, the research workflow will ask these questions BEFORE proceeding:
+For high-stakes work, the research skill will ask these questions BEFORE proceeding:
 1. Who is the audience/stakeholder?
 2. What does success look like?
 3. What constraints exist (political, budget, timing)?
@@ -126,19 +126,19 @@ Each insight is a discrete, self-contained markdown file with YAML frontmatter f
 User: "I need to tell the team about layoffs"
 
 # Research phase
-/coworkflows:research
+/coworkpowers:research
 # Asks: Stakes? Audience? Timeline? Past attempts?
 # Searches: Past sensitive communications
 # Gathers: Company context, team morale
 # Produces: Structured communication plan
 
 # Work phase
-/coworkflows:work
+/coworkpowers:work
 # Uses diplomat + executive-writer agents
 # Drafts sensitive communication
 
 # Review phase
-/coworkflows:review
+/coworkpowers:review
 # 5 agents review in parallel
 # Flags: Tone issue, missing support resources section
 
@@ -146,7 +146,7 @@ User: "I need to tell the team about layoffs"
 # ...
 
 # Compound phase
-/coworkflows:compound
+/coworkpowers:compound
 # Captures: Pattern for sensitive communications
 # Documents: "Always include support resources"
 # Creates: Template for layoff communications
@@ -162,4 +162,4 @@ The second difficult communication takes half the time and has twice the quality
 
 ---
 
-**That's it.** Four workflows. Each task makes the next one easier. Knowledge compounds.
+**That's it.** Four skills. Each task makes the next one easier. Knowledge compounds.

@@ -7,11 +7,6 @@
     "url": "https://github.com/nabeelhyatt"
   },
   "homepage": "https://github.com/nabeelhyatt/coworkpowers",
-  "tags": ["knowledge-work", "productivity", "compound-learning", "decision-making", "research", "planning"],
-  "workflows": [
-    "coworkflows:research",
-    "coworkflows:work",
-    "coworkflows:review",
-    "coworkflows:compound"
-  ]
+  "license": "MIT",
+  "keywords": ["knowledge-work", "productivity", "compound-learning", "decision-making", "research", "planning"]
 }
