@@ -15,3 +15,6 @@ Thumbs.db
 # Cache
 .cache/
 *.cache
+
+# User-specific context and learnings
+.context/

@@ -2,44 +2,44 @@
 
 **Knowledge work superpowers that compound over time.**
 
-CoworkPowers gives Claude systematic capabilities for tackling knowledge work—drafting communications, making decisions, preparing for meetings, and more. Each completed task feeds insights back into the system, making the next similar task faster and better.
+CoworkPowers is a Claude Code plugin that gives Claude systematic capabilities for tackling knowledge work -- drafting communications, making decisions, preparing for meetings, and more. Each completed task feeds insights back into the system, making the next similar task faster and better.
 
 ## The Compound Loop
 
-1. **Research** (`/coworkflows:research`) - Thoroughly research the task, search past learnings, gather context
-2. **Work** (`/coworkflows:work`) - Execute the plan with specialized agents
-3. **Review** (`/coworkflows:review`) - Multi-agent quality review from multiple perspectives
-4. **Compound** (`/coworkflows:compound`) - Extract patterns, templates, and preferences for next time
+1. **Research** (`/coworkpowers:research`) - Thoroughly research the task, search past learnings, gather context
+2. **Work** (`/coworkpowers:work`) - Execute the plan with specialized agents
+3. **Review** (`/coworkpowers:review`) - Multi-agent quality review from multiple perspectives
+4. **Compound** (`/coworkpowers:compound`) - Extract patterns, templates, and preferences for next time
 
 ## Key Features
 
-### 🔄 Compounding Knowledge
+### Compounding Knowledge
 - Automatically captures patterns, templates, and preferences from completed work
 - Searches past learnings before starting new tasks
-- Gets smarter with each use—first board update takes 4 hours, next takes 1 hour
+- Gets smarter with each use -- first board update takes 4 hours, next takes 1 hour
 
-### 🎯 Specialized Agents
+### Specialized Agents
 - **decision-architect**: Structure decisions with 40+ frameworks (SPADE, SWOT, Cynefin, Pre-Mortem)
 - **context-gatherer**: Research comprehensive background before acting
 - **executive-writer**: Draft clear, concise business communications
 - **coach**: CEO-level coaching for leadership challenges
 - Plus 10+ more specialized agents
 
-### ✅ Hard Gates & Red Flags
+### Hard Gates & Red Flags
 - Asks clarifying questions before launching expensive research
 - Catches high-stakes work early (board communications, sensitive topics)
-- Verification-before-claims patterns from superpowers
+- Verification-before-claims patterns
 
-### 📚 Dual-Environment Design
-- Works in Claude Code (file-based retrieval with grep/glob)
-- Designed for Camp channels (automatic compaction + relevance filtering)
+### Insight Storage
 - Insights stored as discrete markdown files with YAML frontmatter
+- Fast retrieval via grep/glob during the research phase
+- Searchable index for category, type, and tag-based lookup
 
 ## Quick Start
 
 ### 1. Research Phase
 ```
-/coworkflows:research
+/coworkpowers:research
 
 "I need to draft an email to the board about Q2 results"
 ```
@@ -52,14 +52,14 @@ Claude will:
 
 ### 2. Work Phase
 ```
-/coworkflows:work
+/coworkpowers:work
 
 Follow the plan from research phase
 ```
 
 ### 3. Review Phase
 ```
-/coworkflows:review
+/coworkpowers:review
 
 Review the draft email
 ```
@@ -71,7 +71,7 @@ Multiple specialized reviewers check in parallel:
 
 ### 4. Compound Phase
 ```
-/coworkflows:compound
+/coworkpowers:compound
 
 The board loved it! Let's capture what worked
 ```
@@ -80,26 +80,29 @@ Extracts patterns, creates templates, documents preferences for next time.
 
 ## Installation
 
-### Option 1: Claude Code Plugin (Recommended)
+### Option 1: Test Locally (Development)
 ```bash
-# Clone to Claude plugins directory
-cd ~/.claude/plugins/repos/
+# Clone the repository
 git clone https://github.com/nabeelhyatt/coworkpowers.git
 
-# Enable in Claude Code settings
+# Run Claude Code with the plugin loaded
+claude --plugin-dir ./coworkpowers
 ```
 
-### Option 2: Manual Installation
-Copy the `workflows/` and `agents/` directories to your Claude skills folder.
+### Option 2: Install from Marketplace
+```bash
+# Once published to a marketplace
+/plugin install coworkpowers@marketplace-name
+```
 
-## Workflows
+## Skills
 
 | Command | Purpose | When to Use |
 |---------|---------|-------------|
-| `/coworkflows:research` | Research and plan thoroughly | Starting any significant work |
-| `/coworkflows:work` | Execute the plan systematically | After research phase |
-| `/coworkflows:review` | Multi-agent quality review | After drafting/execution |
-| `/coworkflows:compound` | Extract learnings for next time | After completing work |
+| `/coworkpowers:research` | Research and plan thoroughly | Starting any significant work |
+| `/coworkpowers:work` | Execute the plan systematically | After research phase |
+| `/coworkpowers:review` | Multi-agent quality review | After drafting/execution |
+| `/coworkpowers:compound` | Extract learnings for next time | After completing work |
 
 ## Specialized Agents
 
@@ -124,11 +127,27 @@ Copy the `workflows/` and `agents/` directories to your Claude skills folder.
 - **sensitivity-scanner** - Political considerations and risks
 - **actionability-validator** - Clear next steps
 
+## Plugin Structure
+
+```
+coworkpowers/
+  .claude-plugin/
+    plugin.json           # Plugin manifest
+  skills/
+    research/SKILL.md     # Research & planning skill
+    work/SKILL.md         # Execution skill
+    review/SKILL.md       # Multi-agent review skill
+    compound/SKILL.md     # Knowledge compounding skill
+  agents/                 # 20+ specialized agent definitions
+  CLAUDE.md               # Project instructions
+  README.md
+```
+
 ## Example: Board Communication
 
 ```bash
 # 1. Research
-/coworkflows:research "Draft Q2 board update"
+/coworkpowers:research "Draft Q2 board update"
 
 # Claude asks clarifying questions:
 # - What's the most important message? (hypothesis: growth trajectory)
@@ -140,16 +159,16 @@ Copy the `workflows/` and `agents/` directories to your Claude skills folder.
 # Produces structured plan
 
 # 2. Work
-/coworkflows:work
+/coworkpowers:work
 # Follows plan, drafts update using executive-writer agent
 
 # 3. Review
-/coworkflows:review
+/coworkpowers:review
 # 5 specialized reviewers check in parallel
 # Identifies: tone too casual for board, missing risk section
 
 # 4. Compound
-/coworkflows:compound "Board loved it"
+/coworkpowers:compound "Board loved it"
 # Captures: "Board prefers bullet points over prose"
 # Creates: Board update template
 # Documents: Success pattern for future use
@@ -216,15 +235,11 @@ takeaway: One-sentence key learning
   ...
 ```
 
-### Search & Retrieval
-- **Claude Code**: Grep/glob search across category directories and INDEX.md
-- **Camp**: Automatic compaction into channel knowledge base + relevance filtering
-
 ## Contributing
 
 Contributions welcome! This plugin is designed to be extended:
 - Add new specialized agents
-- Create new workflow phases
+- Create new skill phases
 - Enhance existing agents with new frameworks
 
 ## License
@@ -238,4 +253,4 @@ Inspired by:
 - [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin) - Compounding knowledge philosophy
 - Kieran Klaassen's work on compound systems
 
-Built with ❤️ for knowledge workers who want their AI to get smarter over time.
+Built for knowledge workers who want their AI to get smarter over time.
