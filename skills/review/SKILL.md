@@ -1,5 +1,5 @@
 ---
-name: review
+name: workflow-review
 description: "Run parallel multi-agent review on completed knowledge work. Use after the work phase to evaluate output quality from multiple specialized perspectives before finalizing. Triggers on requests like 'review this', 'check this before I send it', 'stress-test this recommendation', or when quality assurance is needed on a deliverable."
 ---
 
@@ -124,6 +124,10 @@ If issues conflict, present the tradeoff to the user and let them decide.
 - Its job is to find the strongest counterargument
 - Don't dismiss its findings just because you disagree
 - If the devil's advocate can't find a good counterargument, that's strong validation
+
+## Next Step
+
+When the work is finalized, capture what you learned: **`/coworkpowers:workflow-compound`**
 
 ## Anti-Patterns to Avoid
 

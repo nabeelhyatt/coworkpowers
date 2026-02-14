@@ -1,5 +1,5 @@
 ---
-name: compound
+name: workflow-compound
 description: "Extract and store learnings from completed knowledge work to make the next task easier. Use after completing any significant piece of work to capture patterns, create templates, and update preferences. Triggers on requests like 'that went well, let's capture what worked', 'what did we learn', 'that didn't go well', or after completing high-stakes work."
 disable-model-invocation: true
 ---
@@ -169,6 +169,10 @@ Present these suggestions to the user for approval.
 | Routine work done well | Sometimes | Efficiency patterns |
 | New type of work attempted | Yes | Approach and framework learnings |
 | Discovered user preference | Yes | Preference insight |
+
+## Next Step
+
+The loop is complete. For your next task, start again with: **`/coworkpowers:workflow-research`**
 
 ## Anti-Patterns to Avoid
 

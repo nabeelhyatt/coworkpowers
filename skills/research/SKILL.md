@@ -1,5 +1,5 @@
 ---
-name: research
+name: workflow-research
 description: "Research and plan a knowledge work task thoroughly before execution. Use when starting any significant piece of work - drafting important communications, making strategic decisions, preparing for meetings, or tackling analysis projects. Triggers on requests like 'help me prepare for', 'I need to draft', 'plan out', or any high-stakes knowledge work."
 ---
 
@@ -10,6 +10,10 @@ You are orchestrating the **Research phase** of the Compound Knowledge Work loop
 **80% of compound knowledge work is in research and review.** Do not rush this phase.
 
 ## Process
+
+### Phase 0: Discover Available Tools
+
+Before starting research, check what MCP tools and CLIs are available in the environment (e.g., email, calendar, meeting notes, CRM, company intel). Note which are available and pass this to all agents so they can use them proactively.
 
 ### Phase 1: Understand the Task
 
@@ -83,12 +87,17 @@ Surface what you found: "Based on previous [category] work, we learned [X] and h
 
 ### Phase 3: Parallel Research
 
-Launch research agents in parallel based on the work type. Use the Task tool with appropriate subagents.
+Launch research agents in parallel based on the work type. Use the Task tool with appropriate subagents. **Pass the stakes level to each agent** so they can calibrate depth.
 
-**Always run:**
-- **context-gatherer**: Research all relevant background - previous communications, related documents, organizational context, domain knowledge
+**Scale agents to stakes:**
 
-**Run based on work type:**
+| Stakes | Agents to Run |
+|--------|---------------|
+| **Low** | context-gatherer only (brief scan, no web search) |
+| **Medium** | context-gatherer + 1-2 agents from the work type table below |
+| **High** | Full agent roster from the work type table below |
+
+**Agent roster by work type** (for medium/high stakes):
 
 | Work Type | Additional Agents |
 |-----------|-------------------|
@@ -192,6 +201,10 @@ Present the plan to the user. Ask if they want to:
 - **Be explicit about assumptions.** If you're guessing, say so.
 - **Match rigor to stakes.** A routine email doesn't need a 20-step plan.
 - **Include review in the plan.** Every plan should specify which reviewers will check the output.
+
+## Next Step
+
+When the plan is approved, move to execution: **`/coworkpowers:workflow-work`**
 
 ## Anti-Patterns to Avoid
 

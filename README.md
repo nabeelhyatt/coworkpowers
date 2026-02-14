@@ -6,10 +6,10 @@ CoworkPowers is a Claude Code plugin that gives Claude systematic capabilities f
 
 ## The Compound Loop
 
-1. **Research** (`/coworkpowers:research`) - Thoroughly research the task, search past learnings, gather context
-2. **Work** (`/coworkpowers:work`) - Execute the plan with specialized agents
-3. **Review** (`/coworkpowers:review`) - Multi-agent quality review from multiple perspectives
-4. **Compound** (`/coworkpowers:compound`) - Extract patterns, templates, and preferences for next time
+1. **Research** (`/coworkpowers:workflow-research`) - Thoroughly research the task, search past learnings, gather context
+2. **Work** (`/coworkpowers:workflow-work`) - Execute the plan with specialized agents
+3. **Review** (`/coworkpowers:workflow-review`) - Multi-agent quality review from multiple perspectives
+4. **Compound** (`/coworkpowers:workflow-compound`) - Extract patterns, templates, and preferences for next time
 
 ## Key Features
 
@@ -39,7 +39,7 @@ CoworkPowers is a Claude Code plugin that gives Claude systematic capabilities f
 
 ### 1. Research Phase
 ```
-/coworkpowers:research
+/coworkpowers:workflow-research
 
 "I need to draft an email to the board about Q2 results"
 ```
@@ -52,14 +52,14 @@ Claude will:
 
 ### 2. Work Phase
 ```
-/coworkpowers:work
+/coworkpowers:workflow-work
 
 Follow the plan from research phase
 ```
 
 ### 3. Review Phase
 ```
-/coworkpowers:review
+/coworkpowers:workflow-review
 
 Review the draft email
 ```
@@ -71,7 +71,7 @@ Multiple specialized reviewers check in parallel:
 
 ### 4. Compound Phase
 ```
-/coworkpowers:compound
+/coworkpowers:workflow-compound
 
 The board loved it! Let's capture what worked
 ```
@@ -80,29 +80,35 @@ Extracts patterns, creates templates, documents preferences for next time.
 
 ## Installation
 
-### Option 1: Test Locally (Development)
-```bash
-# Clone the repository
-git clone https://github.com/nabeelhyatt/coworkpowers.git
+### Claude Code
 
-# Run Claude Code with the plugin loaded
+```bash
+# Option A: Install from Marketplace
+/plugin install coworkpowers@coworkpowers
+
+# Option B: Test locally
+git clone https://github.com/nabeelhyatt/coworkpowers.git
 claude --plugin-dir ./coworkpowers
 ```
 
-### Option 2: Install from Marketplace
-```bash
-# from inside Claude Code
-/plugin install coworkpowers@coworkpowers
-```
+### Cowork (Claude Desktop)
+
+1. Download [coworkpowers.zip](coworkpowers.zip) from this repository
+2. In Cowork, go to Settings → Plugins → Upload Local Plugin
+3. Upload the zip file
+
+### Connectors (Optional)
+
+Connect MCP tools for richer context — email, calendar, meeting notes, CRM, etc. See [CONNECTORS.md](CONNECTORS.md) for supported categories and example MCPs. No connectors are required; the plugin works with web search and local files alone.
 
 ## Skills
 
 | Command | Purpose | When to Use |
 |---------|---------|-------------|
-| `/coworkpowers:research` | Research and plan thoroughly | Starting any significant work |
-| `/coworkpowers:work` | Execute the plan systematically | After research phase |
-| `/coworkpowers:review` | Multi-agent quality review | After drafting/execution |
-| `/coworkpowers:compound` | Extract learnings for next time | After completing work |
+| `/coworkpowers:workflow-research` | Research and plan thoroughly | Starting any significant work |
+| `/coworkpowers:workflow-work` | Execute the plan systematically | After research phase |
+| `/coworkpowers:workflow-review` | Multi-agent quality review | After drafting/execution |
+| `/coworkpowers:workflow-compound` | Extract learnings for next time | After completing work |
 
 ## Specialized Agents
 
@@ -147,7 +153,7 @@ coworkpowers/
 
 ```bash
 # 1. Research
-/coworkpowers:research "Draft Q2 board update"
+/coworkpowers:workflow-research "Draft Q2 board update"
 
 # Claude asks clarifying questions:
 # - What's the most important message? (hypothesis: growth trajectory)
@@ -159,16 +165,16 @@ coworkpowers/
 # Produces structured plan
 
 # 2. Work
-/coworkpowers:work
+/coworkpowers:workflow-work
 # Follows plan, drafts update using executive-writer agent
 
 # 3. Review
-/coworkpowers:review
+/coworkpowers:workflow-review
 # 5 specialized reviewers check in parallel
 # Identifies: tone too casual for board, missing risk section
 
 # 4. Compound
-/coworkpowers:compound "Board loved it"
+/coworkpowers:workflow-compound "Board loved it"
 # Captures: "Board prefers bullet points over prose"
 # Creates: Board update template
 # Documents: Success pattern for future use
