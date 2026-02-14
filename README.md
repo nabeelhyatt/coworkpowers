@@ -91,8 +91,8 @@ claude --plugin-dir ./coworkpowers
 
 ### Option 2: Install from Marketplace
 ```bash
-# Once published to a marketplace
-/plugin install coworkpowers@marketplace-name
+# from inside Claude Code
+/plugin install coworkpowers@coworkpowers
 ```
 
 ## Skills
