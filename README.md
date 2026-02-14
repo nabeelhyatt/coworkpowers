@@ -11,72 +11,47 @@ CoworkPowers is a Claude Code plugin that gives Claude systematic capabilities f
 3. **Review** (`/coworkpowers:workflow-review`) - Multi-agent quality review from multiple perspectives
 4. **Compound** (`/coworkpowers:workflow-compound`) - Extract patterns, templates, and preferences for next time
 
-## Key Features
+## How Each Phase Works
 
-### Compounding Knowledge
-- Automatically captures patterns, templates, and preferences from completed work
-- Searches past learnings before starting new tasks
-- Gets smarter with each use -- first board update takes 4 hours, next takes 1 hour
+### Research
 
-### Specialized Agents
-- **decision-architect**: Structure decisions with 40+ frameworks (SPADE, SWOT, Cynefin, Pre-Mortem)
-- **context-gatherer**: Research comprehensive background before acting
-- **executive-writer**: Draft clear, concise business communications
-- **coach**: CEO-level coaching for leadership challenges
-- Plus 10+ more specialized agents
+Research runs parallel agents to gather context before any work begins. The **context-gatherer** pulls relevant background. The **stakeholder-mapper** identifies who cares and why. The **constraint-analyzer** finds the boundaries. The **precedent-researcher** checks what's worked before. These run in parallel -- not sequentially -- so research is fast even when it's thorough.
 
-### Hard Gates & Red Flags
-- Asks clarifying questions before launching expensive research
-- Catches high-stakes work early (board communications, sensitive topics)
-- Verification-before-claims patterns
+Stakes classification happens here too. A routine email gets a lightweight context scan. A board presentation gets the full agent roster. This prevents the overwork problem where every task gets treated like a crisis.
 
-### Insight Storage
-- Insights stored as discrete markdown files with YAML frontmatter
-- Fast retrieval via grep/glob during the research phase
-- Searchable index for category, type, and tag-based lookup
+### Work
 
-## Quick Start
+Work is where execution happens. The system picks the right agent mindset for the task type: **executive-writer** for communications, **analyst** for data work, **decision-architect** for strategic choices (this one has 40+ decision frameworks it selects from), **meeting-orchestrator** for meeting prep, **coach** for leadership challenges. The work uses everything Research gathered, so there's no redundant context-fetching.
 
-### 1. Research Phase
-```
-/coworkpowers:workflow-research
+### Review
 
-"I need to draft an email to the board about Q2 results"
-```
+Review is where progressive loading gets interesting. Low-stakes work might only get a clarity pass. High-stakes work activates up to 8 specialized reviewers running in parallel:
 
-Claude will:
-- Ask clarifying questions (stakes? audience? constraints?)
-- Search past board communications for patterns
-- Gather context on Q2 results and board concerns
-- Produce a thorough plan
+- **clarity-reviewer** -- is this understandable?
+- **tone-calibrator** -- does this sound right for the audience?
+- **completeness-auditor** -- is anything missing?
+- **sensitivity-scanner** -- any political landmines?
+- **devil's-advocate** -- what's the strongest counter-argument?
+- **risk-assessor** -- what could go wrong?
+- **strategic-alignment-checker** -- does this fit the bigger picture?
+- **actionability-validator** -- are next steps clear?
 
-### 2. Work Phase
-```
-/coworkpowers:workflow-work
+Each reviewer returns findings tagged by severity: **Critical**, **Important**, or **Minor**. Criticals get fixed before delivery. Important items get flagged. Minor items are noted but not blocking.
 
-Follow the plan from research phase
-```
+### Compound
 
-### 3. Review Phase
-```
-/coworkpowers:workflow-review
+After Work and Review complete, the Compound phase runs analysis agents that extract reusable knowledge:
 
-Review the draft email
-```
+- **Patterns**: "When writing partner updates, leading with portfolio metrics before narrative gets better engagement"
+- **Templates**: The actual structure that worked, saved for reuse
+- **Preferences**: "This user prefers concise bullets over flowing prose for internal comms"
+- **Failures**: "Tone was too formal for this audience -- calibrate down next time"
 
-Multiple specialized reviewers check in parallel:
-- Clarity, tone, completeness
-- Political sensitivities, risks
-- Actionability, strategic alignment
+Each insight gets stored as a discrete, tagged file in `.context/learnings/`. One insight per file, because granular knowledge is findable. A monolithic "things we learned" doc isn't.
 
-### 4. Compound Phase
-```
-/coworkpowers:workflow-compound
+Next time you do similar work, the Research phase searches these learnings before doing any new research. It loads matching patterns, applies saved templates, honors your preferences, and avoids documented failures.
 
-The board loved it! Let's capture what worked
-```
-
-Extracts patterns, creates templates, documents preferences for next time.
+**The practical effect**: your first partner update might take the full Research > Work > Review cycle. Your fourth one loads the template, applies your preferred tone, and skips the research it already has. Faster, cheaper, and more consistent.
 
 ## Installation
 
@@ -94,12 +69,12 @@ claude --plugin-dir ./coworkpowers
 ### Cowork (Claude Desktop)
 
 1. Download [coworkpowers.zip](coworkpowers.zip) from this repository
-2. In Cowork, go to Settings → Plugins → Upload Local Plugin
+2. In Cowork, go to Settings > Plugins > Upload Local Plugin
 3. Upload the zip file
 
 ### Connectors (Optional)
 
-Connect MCP tools for richer context — email, calendar, meeting notes, CRM, etc. See [CONNECTORS.md](CONNECTORS.md) for supported categories and example MCPs. No connectors are required; the plugin works with web search and local files alone.
+Connect MCP tools for richer context -- email, calendar, meeting notes, CRM, etc. See [CONNECTORS.md](CONNECTORS.md) for supported categories and example MCPs. No connectors are required; the plugin works with web search and local files alone.
 
 ## Skills
 
@@ -110,46 +85,7 @@ Connect MCP tools for richer context — email, calendar, meeting notes, CRM, et
 | `/coworkpowers:workflow-review` | Multi-agent quality review | After drafting/execution |
 | `/coworkpowers:workflow-compound` | Extract learnings for next time | After completing work |
 
-## Specialized Agents
-
-### Research Phase Agents
-- **context-gatherer** - Comprehensive background research
-- **stakeholder-mapper** - Map interests and power dynamics
-- **precedent-researcher** - Find similar past situations
-- **constraint-analyzer** - Identify limits and requirements
-
-### Work Phase Agents
-- **executive-writer** - Business communications
-- **analyst** - Rigorous analysis and synthesis
-- **decision-architect** - Structured decision-making with frameworks
-- **meeting-orchestrator** - Meeting prep and facilitation
-- **coach** - Leadership coaching and thinking partner
-- **diplomat** - Navigate sensitive conversations
-
-### Review Phase Agents
-- **clarity-reviewer** - Message clarity and conciseness
-- **tone-calibrator** - Appropriate tone for audience
-- **completeness-auditor** - Nothing important missing
-- **sensitivity-scanner** - Political considerations and risks
-- **actionability-validator** - Clear next steps
-
-## Plugin Structure
-
-```
-coworkpowers/
-  .claude-plugin/
-    plugin.json           # Plugin manifest
-  skills/
-    research/SKILL.md     # Research & planning skill
-    work/SKILL.md         # Execution skill
-    review/SKILL.md       # Multi-agent review skill
-    compound/SKILL.md     # Knowledge compounding skill
-  agents/                 # 20+ specialized agent definitions
-  CLAUDE.md               # Project instructions
-  README.md
-```
-
-## Example: Board Communication
+## Quick Start
 
 ```bash
 # 1. Research
@@ -186,6 +122,12 @@ Next board update will:
 - Avoid past failures
 - Take 1 hour instead of 4
 
+## Design Learnings
+
+**Progressive loading beats uniform rigor.** We started by treating all review agents equally -- every task got the full review battery. It was thorough but painfully slow for simple tasks. The insight that different work deserves different rigor levels became the core idea behind stakes-based calibration. The classification step in Research that determines stakes level was an afterthought that turned into the most important architectural decision.
+
+**Granular beats monolithic for compound learning.** Early versions stored learnings in big category documents. Finding the right insight meant reading through pages of loosely related notes. Switching to one-insight-per-file with YAML frontmatter (type, category, tags, takeaway) made retrieval actually work. The system can grep for exactly what it needs instead of parsing context from surrounding text.
+
 ## Philosophy
 
 ### Compound Everything Worth Repeating
@@ -201,6 +143,22 @@ If you might do something similar again, compound it. Even partial successes hav
 
 ### Be Honest About Failures
 Don't sugarcoat what went wrong. Root causes matter more than symptoms. Prevention > cure.
+
+## Plugin Structure
+
+```
+coworkpowers/
+  .claude-plugin/
+    plugin.json           # Plugin manifest
+  skills/
+    workflow-research/SKILL.md   # Research & planning skill
+    workflow-work/SKILL.md       # Execution skill
+    workflow-review/SKILL.md     # Multi-agent review skill
+    workflow-compound/SKILL.md   # Knowledge compounding skill
+  agents/                 # 20+ specialized agent definitions
+  CLAUDE.md               # Project instructions
+  README.md
+```
 
 ## Technical Details
 
