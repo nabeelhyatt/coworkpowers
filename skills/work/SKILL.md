@@ -1,5 +1,5 @@
 ---
-name: work
+name: workflow-work
 description: "Execute a knowledge work plan efficiently while maintaining quality. Use after the research phase to systematically work through a plan using the right agents for each step. Triggers on requests like 'execute the plan', 'draft that email we planned', 'go ahead and write', or when moving from planning to execution."
 disable-model-invocation: true
 ---
@@ -120,6 +120,10 @@ Present the completed work to the user with:
 3. Surface assumptions and beliefs
 4. Challenge respectfully
 5. Capture insights and commitments
+
+## Next Step
+
+When work is complete, run the quality review: **`/coworkpowers:workflow-review`**
 
 ## Anti-Patterns to Avoid
 

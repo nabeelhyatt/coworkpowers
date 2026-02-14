@@ -4,10 +4,10 @@ A system that makes knowledge work compound over time. Four skills orchestrate 2
 
 ## Skills
 
-- **`/coworkpowers:research`** — Research and plan before execution. Asks clarifying questions, searches past learnings, gathers context, runs parallel research agents, synthesizes into an actionable plan.
-- **`/coworkpowers:work`** — Execute a plan with specialized agents (executive-writer, analyst, decision-architect, coach, meeting-orchestrator, task-executor).
-- **`/coworkpowers:review`** — Multi-agent quality review: clarity, tone, completeness, sensitivity, risks, alignment, actionability.
-- **`/coworkpowers:compound`** — Extract patterns, templates, preferences, and failure lessons to make next time easier.
+- **`/coworkpowers:workflow-research`** — Research and plan before execution. Asks clarifying questions, searches past learnings, gathers context, runs parallel research agents, synthesizes into an actionable plan.
+- **`/coworkpowers:workflow-work`** — Execute a plan with specialized agents (executive-writer, analyst, decision-architect, coach, meeting-orchestrator, task-executor).
+- **`/coworkpowers:workflow-review`** — Multi-agent quality review: clarity, tone, completeness, sensitivity, risks, alignment, actionability.
+- **`/coworkpowers:workflow-compound`** — Extract patterns, templates, preferences, and failure lessons to make next time easier.
 
 ## Match Rigor to Stakes
 
