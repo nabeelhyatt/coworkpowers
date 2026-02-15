@@ -53,12 +53,12 @@ Next time you do similar work, the Research phase searches these learnings befor
 
 **The practical effect**: your first partner update might take the full Research > Work > Review cycle. Your fourth one loads the template, applies your preferred tone, and skips the research it already has. Faster, cheaper, and more consistent.
 
-## Installation
+## Installation - There are a few ways you can get this up and running in Claude
 
-### Claude Code
+### 1. Claude Code
 
 ```bash
-# Option A: Install from Marketplace
+# Option A: (Easiest) Open Claude Code, then install from Marketplace just copy and paste this line into Claude Code and hit yes, then restart Claude Code after install and start with the first command - /workflow-research and the first task
 /plugin install coworkpowers@coworkpowers
 
 # Option B: Test locally
@@ -66,15 +66,16 @@ git clone https://github.com/nabeelhyatt/coworkpowers.git
 claude --plugin-dir ./coworkpowers
 ```
 
-### Cowork (Claude Desktop)
+### Cowork (Claude Desktop) - This is beta. Using the new Claude Cowork you can try this as a plug-in
 
 1. Download [coworkpowers.zip](coworkpowers.zip) from this repository
-2. In Cowork, go to Settings > Plugins > Upload Local Plugin
-3. Upload the zip file
+2. In Cowork, clikc Plugins in the left sidebar > + to add plug-in > Upload Plugin
+3. Drag and drop the zip file and hit upload
+4. Go back to cowork and type /workflow-research [task you want done] to get started
 
 ### Connectors (Optional)
 
-Connect MCP tools for richer context -- email, calendar, meeting notes, CRM, etc. See [CONNECTORS.md](CONNECTORS.md) for supported categories and example MCPs. No connectors are required; the plugin works with web search and local files alone.
+Connect MCP tools for richer context -- email, calendar, meeting notes, CRM, etc. See [CONNECTORS.md](CONNECTORS.md) for supported categories and example MCPs. No connectors are required; the plugin works with web search and local files alone. But it will gather from most of the connectors/mcp/apis to gather more context for your task without any additional setup.
 
 ## Skills
 
@@ -89,15 +90,15 @@ Connect MCP tools for richer context -- email, calendar, meeting notes, CRM, etc
 
 ```bash
 # 1. Research
-/coworkpowers:workflow-research "Draft Q2 board update"
+/coworkpowers:workflow-research "Draft competitive analysis"
 
 # Claude asks clarifying questions:
-# - What's the most important message? (hypothesis: growth trajectory)
-# - Any sensitive topics? (political considerations)
+# - What's the most important competitor? (hypothesis: growth trajectory)
+# - Any strategic advanteges to consider? (strategic considerations)
 # - Deadline? (affects research depth)
 
 # Searches past board communications
-# Gathers Q2 data and context
+# Gathers data from web, past emails, and context from X MCP
 # Produces structured plan
 
 # 2. Work
@@ -124,25 +125,22 @@ Next board update will:
 
 ## Design Learnings
 
-**Progressive loading beats uniform rigor.** We started by treating all review agents equally -- every task got the full review battery. It was thorough but painfully slow for simple tasks. The insight that different work deserves different rigor levels became the core idea behind stakes-based calibration. The classification step in Research that determines stakes level was an afterthought that turned into the most important architectural decision.
+**Progressive loading beats uniform rigor.** This started by treating all review agents equally -- every task got the full review battery. It was thorough but painfully slow for simple tasks. The classification step in Research that determines stakes level was an afterthought that turned into making this generally usable daily.
 
-**Granular beats monolithic for compound learning.** Early versions stored learnings in big category documents. Finding the right insight meant reading through pages of loosely related notes. Switching to one-insight-per-file with YAML frontmatter (type, category, tags, takeaway) made retrieval actually work. The system can grep for exactly what it needs instead of parsing context from surrounding text.
+**Granular beats monolithic for compound learning.** Early versions stored learnings in big category documents. But as most others have found (see Cursor context gathering, Anthropic, etc) just trusting in grep to scour across lots of little files and directories is the better model. Switching to one-insight-per-file with YAML frontmatter (type, category, tags, takeaway) made retrieval actually work.
 
 ## Philosophy
 
 ### Compound Everything Worth Repeating
-If you might do something similar again, compound it. Even partial successes have valuable patterns. Failures are the most valuable compounding opportunities.
+If you might do something similar again, compound it. Even partial successes have valuable patterns. Failures are the most valuable compounding opportunities. Feel free to add WHAT you want to compoound, your learnings, and it will make sure to incorporate that along with anything else it finds.
 
 ### Front-Load the Thinking
-80% of knowledge work is research and review. Every minute spent planning saves ten in execution.
+80% of knowledge work is research and review. Every minute spent planning saves ten in execution. We sometimes jump to the doing, when the context gathering is the key.
 
 ### Match Rigor to Stakes
 - **Low stakes** (internal notes): Light planning
 - **Medium stakes** (team comms): Moderate planning
 - **High stakes** (board, strategy): Full research + review
-
-### Be Honest About Failures
-Don't sugarcoat what went wrong. Root causes matter more than symptoms. Prevention > cure.
 
 ## Plugin Structure
 
@@ -187,17 +185,6 @@ takeaway: One-sentence key learning
 [Specific situations where relevant]
 ```
 
-### File Structure
-```
-.context/learnings/
-  INDEX.md                    # Searchable index of all insights
-  communication/
-    2026-02-13-pattern-board-format.md
-    2026-02-13-template-board-update.md
-  decision/
-    2026-02-12-pattern-premortem-value.md
-  ...
-```
 
 ## Contributing
 
