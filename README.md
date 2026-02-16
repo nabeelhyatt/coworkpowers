@@ -53,52 +53,36 @@ Next time you do similar work, the Research phase searches these learnings befor
 
 **The practical effect**: your first partner update might take the full Research > Work > Review cycle. Your fourth one loads the template, applies your preferred tone, and skips the research it already has. Faster, cheaper, and more consistent.
 
-## Installation
+## Installation - There are a few ways you can get this up and running in Claude
 
 > **Note:** This is v2.0.0 with marketplace-compatible structure. See [MIGRATION.md](MIGRATION.md) if upgrading from v1.x.
 
-### Claude Code (Local Testing)
-
-The plugin uses a marketplace-compatible directory structure:
+### 1. Claude Code (Local Testing)
 
 ```bash
 # Clone the repository
 git clone https://github.com/nabeelhyatt/coworkpowers.git
+cd coworkpowers
 
-# Launch Claude Code with the plugin
-claude --plugin-dir ./coworkpowers/plugins/coworkpowers
+# Run with the new plugin path
+claude --plugin-dir ./plugins/coworkpowers
 ```
 
-After launching, the workflow skills will be available:
-- `/coworkpowers:workflow-research`
-- `/coworkpowers:workflow-work`
-- `/coworkpowers:workflow-review`
-- `/coworkpowers:workflow-compound`
+> **Marketplace Installation:** Not yet available. The repository is structured for marketplace submission but is pending publication.
 
-### Cowork (Claude Desktop) - Beta
+### 2. Cowork (Claude Desktop) - Beta
 
-> ⚠️ **Note:** Cowork installation is pending testing with the v2.0.0 structure. The ZIP needs to be regenerated and validated. For now, please use the Claude Code local installation method above.
+> ⚠️ **Note:** Cowork installation is pending testing with the v2.0.0 structure. The previous `coworkpowers.zip` has been removed as it contained the outdated v1.x flat structure. A new ZIP will be provided after v2.0.0 testing is complete.
 
-To generate and test the ZIP yourself:
-```bash
-cd plugins/coworkpowers
-zip -r ../../coworkpowers.zip .claude-plugin skills agents CLAUDE.md CONNECTORS.md
-# Upload to Cowork and verify loading
-```
-
-### Marketplace Installation (Coming Soon)
-
-We're working on making this plugin available via the Claude Code marketplace. Once available, installation will be as simple as:
-
-```bash
-/plugin install coworkpowers@coworkpowers
-```
-
-Track progress on marketplace integration in [Issue #8](https://github.com/nabeelhyatt/coworkpowers/issues/8).
+**When ZIP is available:**
+1. Download the updated ZIP from releases
+2. In Cowork, click Plugins in the left sidebar → + to add plug-in → Upload Plugin
+3. Drag and drop the zip file and hit upload
+4. Go back to cowork and type `/coworkpowers:workflow-research [task]` to get started
 
 ### Connectors (Optional)
 
-Connect MCP tools for richer context -- email, calendar, meeting notes, CRM, etc. See [plugins/coworkpowers/CONNECTORS.md](plugins/coworkpowers/CONNECTORS.md) for supported categories and example MCPs. No connectors are required; the plugin works with web search and local files alone. But it will gather from most of the connectors/mcp/apis to gather more context for your task without any additional setup.
+Connect MCP tools for richer context -- email, calendar, meeting notes, CRM, etc. See [CONNECTORS.md](CONNECTORS.md) for supported categories and example MCPs. No connectors are required; the plugin works with web search and local files alone. But it will gather from most of the connectors/mcp/apis to gather more context for your task without any additional setup.
 
 ## Skills
 
