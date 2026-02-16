@@ -55,23 +55,45 @@ Next time you do similar work, the Research phase searches these learnings befor
 
 ## Installation - There are a few ways you can get this up and running in Claude
 
-### 1. Claude Code
+> **Note:** This is v2.0.0 with marketplace-compatible structure. See [MIGRATION.md](MIGRATION.md) if upgrading from v1.x.
+
+### 1. Claude Code (Local Testing)
 
 ```bash
-# Option A: (Easiest) Open Claude Code, then install from Marketplace just copy and paste this line into Claude Code and hit yes, then restart Claude Code after install and start with the first command - /workflow-research and the first task
-/plugin install coworkpowers@coworkpowers
-
-# Option B: Test locally
+# Clone the repository
 git clone https://github.com/nabeelhyatt/coworkpowers.git
-claude --plugin-dir ./coworkpowers
+cd coworkpowers
+
+# Run with the new plugin path
+claude --plugin-dir ./plugins/coworkpowers
 ```
 
-### Cowork (Claude Desktop) - This is beta. Using the new Claude Cowork you can try this as a plug-in
+### 2. Marketplace Installation (Self-Hosted - Available Now!)
 
-1. Download [coworkpowers.zip](coworkpowers.zip) from this repository
-2. In Cowork, clikc Plugins in the left sidebar > + to add plug-in > Upload Plugin
+You can install directly from GitHub using Claude Code's marketplace feature:
+
+```bash
+# Add the marketplace
+/plugin add https://github.com/nabeelhyatt/coworkpowers
+
+# Install the plugin
+/plugin install coworkpowers@nabeelhyatt
+
+# Start using it
+/coworkpowers:workflow-research "your task here"
+```
+
+> **Official Anthropic Marketplace:** Submission pending. Once approved, you'll be able to install with just `/plugin install coworkpowers` (no URL needed).
+
+### 3. Cowork (Claude Desktop) - Beta
+
+> ⚠️ **Note:** Cowork installation is pending testing with the v2.0.0 structure. The previous `coworkpowers.zip` has been removed as it contained the outdated v1.x flat structure. A new ZIP will be provided after v2.0.0 testing is complete.
+
+**When ZIP is available:**
+1. Download the updated ZIP from releases
+2. In Cowork, click Plugins in the left sidebar → + to add plug-in → Upload Plugin
 3. Drag and drop the zip file and hit upload
-4. Go back to cowork and type /workflow-research [task you want done] to get started
+4. Go back to cowork and type `/coworkpowers:workflow-research [task]` to get started
 
 ### Connectors (Optional)
 
