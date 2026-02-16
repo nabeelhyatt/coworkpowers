@@ -77,10 +77,14 @@ After launching, the workflow skills will be available:
 
 ### Cowork (Claude Desktop) - Beta
 
-1. Download [coworkpowers.zip](coworkpowers.zip) from this repository
-2. In Cowork, click Plugins in the left sidebar → + to add plugin → Upload Plugin
-3. Drag and drop the zip file and hit upload
-4. Type `/workflow-research [task you want done]` to get started
+> ⚠️ **Note:** Cowork installation is pending testing with the v2.0.0 structure. The ZIP needs to be regenerated and validated. For now, please use the Claude Code local installation method above.
+
+To generate and test the ZIP yourself:
+```bash
+cd plugins/coworkpowers
+zip -r ../../coworkpowers.zip .claude-plugin skills agents CLAUDE.md CONNECTORS.md
+# Upload to Cowork and verify loading
+```
 
 ### Marketplace Installation (Coming Soon)
 

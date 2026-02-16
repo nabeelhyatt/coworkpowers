@@ -94,12 +94,14 @@ If you forked the repository before v2.0.0:
 
 ### For Cowork (Claude Desktop) Users
 
-Download the updated ZIP file:
-1. Go to the [latest release](https://github.com/nabeelhyatt/coworkpowers/releases/latest)
-2. Download `coworkpowers.zip`
-3. Upload to Cowork as before (Plugins → Upload Plugin)
+> ⚠️ **Note:** Cowork installation with v2.0.0 structure is pending testing. The ZIP needs to be generated and validated with Cowork.
 
-The updated ZIP contains the new structure but is packaged for compatibility with Cowork's extraction process.
+**If you have Cowork access and want to test:**
+1. Generate ZIP: `cd plugins/coworkpowers && zip -r ../../coworkpowers.zip .claude-plugin skills agents CLAUDE.md CONNECTORS.md`
+2. Upload to Cowork (Plugins → Upload Plugin)
+3. Verify plugin loads and skills are accessible
+
+For now, we recommend using the Claude Code local installation method instead.
 
 ## Troubleshooting
 
