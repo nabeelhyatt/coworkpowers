@@ -53,29 +53,48 @@ Next time you do similar work, the Research phase searches these learnings befor
 
 **The practical effect**: your first partner update might take the full Research > Work > Review cycle. Your fourth one loads the template, applies your preferred tone, and skips the research it already has. Faster, cheaper, and more consistent.
 
-## Installation - There are a few ways you can get this up and running in Claude
+## Installation
 
-### 1. Claude Code
+> **Note:** This is v2.0.0 with marketplace-compatible structure. See [MIGRATION.md](MIGRATION.md) if upgrading from v1.x.
+
+### Claude Code (Local Testing)
+
+The plugin uses a marketplace-compatible directory structure:
 
 ```bash
-# Option A: (Easiest) Open Claude Code, then install from Marketplace just copy and paste this line into Claude Code and hit yes, then restart Claude Code after install and start with the first command - /workflow-research and the first task
-/plugin install coworkpowers@coworkpowers
-
-# Option B: Test locally
+# Clone the repository
 git clone https://github.com/nabeelhyatt/coworkpowers.git
-claude --plugin-dir ./coworkpowers
+
+# Launch Claude Code with the plugin
+claude --plugin-dir ./coworkpowers/plugins/coworkpowers
 ```
 
-### Cowork (Claude Desktop) - This is beta. Using the new Claude Cowork you can try this as a plug-in
+After launching, the workflow skills will be available:
+- `/coworkpowers:workflow-research`
+- `/coworkpowers:workflow-work`
+- `/coworkpowers:workflow-review`
+- `/coworkpowers:workflow-compound`
+
+### Cowork (Claude Desktop) - Beta
 
 1. Download [coworkpowers.zip](coworkpowers.zip) from this repository
-2. In Cowork, clikc Plugins in the left sidebar > + to add plug-in > Upload Plugin
+2. In Cowork, click Plugins in the left sidebar → + to add plugin → Upload Plugin
 3. Drag and drop the zip file and hit upload
-4. Go back to cowork and type /workflow-research [task you want done] to get started
+4. Type `/workflow-research [task you want done]` to get started
+
+### Marketplace Installation (Coming Soon)
+
+We're working on making this plugin available via the Claude Code marketplace. Once available, installation will be as simple as:
+
+```bash
+/plugin install coworkpowers@coworkpowers
+```
+
+Track progress on marketplace integration in [Issue #8](https://github.com/nabeelhyatt/coworkpowers/issues/8).
 
 ### Connectors (Optional)
 
-Connect MCP tools for richer context -- email, calendar, meeting notes, CRM, etc. See [CONNECTORS.md](CONNECTORS.md) for supported categories and example MCPs. No connectors are required; the plugin works with web search and local files alone. But it will gather from most of the connectors/mcp/apis to gather more context for your task without any additional setup.
+Connect MCP tools for richer context -- email, calendar, meeting notes, CRM, etc. See [plugins/coworkpowers/CONNECTORS.md](plugins/coworkpowers/CONNECTORS.md) for supported categories and example MCPs. No connectors are required; the plugin works with web search and local files alone. But it will gather from most of the connectors/mcp/apis to gather more context for your task without any additional setup.
 
 ## Skills
 

@@ -9,9 +9,9 @@
   "plugins": [
     {
       "name": "coworkpowers",
-      "source": "./",
+      "source": "./plugins/coworkpowers",
       "description": "Knowledge work superpowers that compound over time. Research, execute, review, and capture learnings to make each task easier than the last.",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "author": {
         "name": "Nabeel Hyatt"
       },
