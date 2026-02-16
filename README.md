@@ -68,9 +68,24 @@ cd coworkpowers
 claude --plugin-dir ./plugins/coworkpowers
 ```
 
-> **Marketplace Installation:** Not yet available. The repository is structured for marketplace submission but is pending publication.
+### 2. Marketplace Installation (Self-Hosted - Available Now!)
 
-### 2. Cowork (Claude Desktop) - Beta
+You can install directly from GitHub using Claude Code's marketplace feature:
+
+```bash
+# Add the marketplace
+/plugin add https://github.com/nabeelhyatt/coworkpowers
+
+# Install the plugin
+/plugin install coworkpowers@nabeelhyatt
+
+# Start using it
+/coworkpowers:workflow-research "your task here"
+```
+
+> **Official Anthropic Marketplace:** Submission pending. Once approved, you'll be able to install with just `/plugin install coworkpowers` (no URL needed).
+
+### 3. Cowork (Claude Desktop) - Beta
 
 > ⚠️ **Note:** Cowork installation is pending testing with the v2.0.0 structure. The previous `coworkpowers.zip` has been removed as it contained the outdated v1.x flat structure. A new ZIP will be provided after v2.0.0 testing is complete.
 
